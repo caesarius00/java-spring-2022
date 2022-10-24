@@ -10,8 +10,8 @@ public class Main {
         for(int i=0; i<tab.length; i++){
             n.addValue(tab[i]);
         }
-        System.out.println("Mean: " + Statistics.mean(n));
-        System.out.println("Standard deviation: " + Statistics.standardDeviation(n));
-        System.out.println("Variance: " + Statistics.variance(n));
+        System.out.println("Mean: " + Compute.mean(n));
+        System.out.println("Standard deviation: " + Compute.standardDeviation(n));
+        System.out.println("Variance: " + Compute.variance(n));
     }
 }

@@ -2,7 +2,7 @@ package pl.edu.ug.ckwella.lab02.zad2;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 
 
-public class Statistics {
+public class Compute {
     public static double mean(SummaryStatistics x){
         return x.getMean();
     }

@@ -108,3 +108,5 @@ Temporary Items
 #My
 *.iml
 *.xml
+gradle/
+gradlew.bat

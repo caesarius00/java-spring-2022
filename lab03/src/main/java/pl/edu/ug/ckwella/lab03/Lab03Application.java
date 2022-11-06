@@ -1,55 +1,29 @@
 package pl.edu.ug.ckwella.lab03;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpHeaders;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+
 import org.apache.http.util.EntityUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ImportResource;
+import pl.edu.ug.ckwella.lab03.service.Data;
 
 import java.io.IOException;
+import java.util.HashMap;
+@ImportResource("classpath:beans.xml")
 
 @SpringBootApplication
 public class Lab03Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Lab03Application.class, args);
-		CloseableHttpClient httpClient = HttpClients.createDefault();
+		ApplicationContext applicationContext = SpringApplication.run(Lab03Application.class, args);
 
-		try {
+		try{
+			//System.out.println(Data.getData("https://stepik.org/media/attachments/lesson/266646/MOCK_DATA.csv"));
+			HashMap m = Data.getMap(applicationContext,Data.getData("https://stepik.org/media/attachments/lesson/266646/MOCK_DATA.csv"));
+			m.forEach((k,v)-> System.out.println(k + " " + v));
 
-			HttpGet request = new HttpGet("https://stepik.org/media/attachments/lesson/266646/MOCK_DATA.csv");
-
-			CloseableHttpResponse response = httpClient.execute(request);
-
-			try {
-
-				// Get HttpResponse Status
-				System.out.println(response.getProtocolVersion());              // HTTP/1.1
-				System.out.println(response.getStatusLine().getStatusCode());   // 200
-				System.out.println(response.getStatusLine().getReasonPhrase()); // OK
-				System.out.println(response.getStatusLine().toString());        // HTTP/1.1 200 OK
-
-				HttpEntity entity = response.getEntity();
-				if (entity != null) {
-					// return it as a String
-					String result = EntityUtils.toString(entity);
-					System.out.println(result);
-				}
-
-			} catch (IOException e) {}
-			finally {
-				response.close();
-			}
-		}catch (IOException e) {}
-		finally {
-			try{
-				httpClient.close();
-			}catch (IOException e) {}
-		}
+		} catch (IOException e) {}
 
 	}
 

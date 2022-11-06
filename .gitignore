@@ -108,5 +108,6 @@ Temporary Items
 #My
 *.iml
 *.xml
+!beans.xml
 gradle/
 gradlew.bat

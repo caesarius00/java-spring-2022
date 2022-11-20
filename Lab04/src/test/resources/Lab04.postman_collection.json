@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "a2978625-54c8-40bc-95ee-19ee91b5734b",
+		"name": "Lab04",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24525931"
+	},
+	"item": [
+		{
+			"name": "AddVestment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"maniple\",\r\n    \"primaryColor\" : \"green\",\r\n    \"secondaryColor\" : \"gold\",\r\n    \"material\" : \"silk\",\r\n    \"liningMaterial\" : \"cotton\",\r\n    \"cutType\" : \"semigothic\",\r\n    \"size\" : \"large\",\r\n    \"description\" : \"Maniple to green solemn set\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/vestment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vestment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/vestment/7c04fec2-b1fd-416b-8ddc-db5b87f60ec0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vestment",
+						"7c04fec2-b1fd-416b-8ddc-db5b87f60ec0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShowList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/vestment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vestment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/vestment/e593b4ae-bd49-4ae8-80bf-c41f30f4755d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vestment",
+						"e593b4ae-bd49-4ae8-80bf-c41f30f4755d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditVestment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"chasuble\",\r\n        \"primaryColor\": \"green\",\r\n        \"secondaryColor\": \"silver\",\r\n        \"material\": \"silk\",\r\n        \"liningMaterial\": \"cotton\",\r\n        \"cutType\": \"roman\",\r\n        \"size\": \"large\",\r\n        \"description\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/vestment/7c04fec2-b1fd-416b-8ddc-db5b87f60ec0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vestment",
+						"7c04fec2-b1fd-416b-8ddc-db5b87f60ec0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

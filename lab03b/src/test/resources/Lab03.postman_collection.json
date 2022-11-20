@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "4aefb545-6f81-44bb-ab54-d4caf3f384a3",
+		"name": "Lab03",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24525931"
+	},
+	"item": [
+		{
+			"name": "GetAllPersons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPersonByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person/Juline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"Juline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddNewPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\" : \"Kazik\",\r\n    \"lastName\" : \"Kazimierski\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePersonById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person/c3cbe1d0-922e-4130-8462-3b2ffcf69398",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"c3cbe1d0-922e-4130-8462-3b2ffcf69398"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditPerson",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\" : \"Andrzej\",\r\n    \"lastName\" : \"Andzio\",\r\n    \"email\" : \"saasasasas@saasa.sa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/person/fb3942d0-0ebb-416e-912d-26796cad7f7d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"fb3942d0-0ebb-416e-912d-26796cad7f7d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

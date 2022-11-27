@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+    <body style="background-color: darkcyan">
+    <h2 ><span th:text="${buttonName}" /> vestment</h2>
+
+    <form action="#" th:action="@{/vestment/{wtd}(wtd=${whatToDo})}" th:object="${vestmentToAdd}" method="post">
+
+        <div>Name:<input type="text" th:field="*{name}" maxlength="15" pattern="[A-Za-z0-9]*" required></div>
+        <div>Primary color: <input type="text" th:field="*{primaryColor}" maxlength="20" pattern="[A-Za-z]*"></div>
+        <div>Secondary color:<input type="text" th:field="*{secondaryColor}" maxlength="20" pattern="[A-Za-z]*"></div>
+        <div>Material:<input type="text" th:field="*{material}" maxlength="20" pattern="[A-Za-z]*"></div>
+        <div>Lining material:<input type="text" th:field="*{liningMaterial}" maxlength="20" pattern="[A-Za-z]*"></div>
+        <div>Cut type:<input type="text" th:field="*{cutType}" maxlength="15" pattern="[A-Za-z]*"></div>
+        <div>Size:<input type="text" th:field="*{size}" maxlength="15" pattern="[A-Za-z]*"></div>
+        <div>Description:<input type="text" th:field="*{description}" maxlength="100"></div>
+        <div>Submit:<input style="background-color: aquamarine" type="submit" th:value="${buttonName}"/></div>
+
+    </form>
+
+
+    </body>
+</html>

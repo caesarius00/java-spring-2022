@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body style="background-color: darkcyan">
+        <h2>Vestments from database</h2>
+
+        <div>
+            <a style="color: aliceblue" th:href="@{/vestment/form}">New vestment</a>
+        </div>
+
+        <div th:each="vestment : ${allVestmentsFromDB}">
+            <table>
+                <tr><td style="font-weight: bold">Id: </td><td th:text="${vestment.id}"></td></tr>
+                <tr><td style="font-weight: bold">Name: </td><td th:text="${vestment.name}"></td></tr>
+                <tr><td style="font-weight: bold">Primary color: </td><td th:text="${vestment.primaryColor}"></td></tr>
+                <tr><td style="font-weight: bold">Secondary color: </td><td th:text="${vestment.secondaryColor}"></td></tr>
+                <tr><td style="font-weight: bold">Material: </td><td th:text="${vestment.material}"></td></tr>
+                <tr><td style="font-weight: bold">Lining material: </td><td th:text="${vestment.liningMaterial}"></td></tr>
+                <tr><td style="font-weight: bold">Cut type: </td><td th:text="${vestment.cutType}"></td></tr>
+                <tr><td style="font-weight: bold">Size: </td><td th:text="${vestment.size}"></td></tr>
+                <tr><td style="font-weight: bold">Description: </td><td th:text="${vestment.description}"></td></tr>
+                <tr><td/>
+                    <td><a style="color: aliceblue" th:href="@{/vestment/delete/{id}(id=${vestment.getId()})}">Delete</a></td>
+                </tr>
+                <tr><td/>
+                    <td><a style="color: aliceblue" th:href="@{/vestment/form/{id}(id=${vestment.getId()})}">Edit</a></td>
+                </tr>
+            </table>
+            <br/>
+        </div>
+    </body>
+</html>

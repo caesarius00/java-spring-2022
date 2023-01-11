@@ -1,5 +1,8 @@
 package pl.edu.ug.ckwella.Lab04.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,8 +21,7 @@ public class LiturgicalVestment {
 
     private List<LiturgicalFunction> users;
 
-    public LiturgicalVestment(long ID, String name, String primaryColor, String secondaryColor, String cutType, String size) {
-        this.id = ID;
+    public LiturgicalVestment(String name, String primaryColor, String secondaryColor, String cutType, String size) {
         this.name = name;
         this.primaryColor = primaryColor;
         this.secondaryColor = secondaryColor;
@@ -78,12 +80,12 @@ public class LiturgicalVestment {
         return secondaryColor;
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     public Material getMaterial() {
         return material;
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     public Material getLiningMaterial() {
         return liningMaterial;
     }

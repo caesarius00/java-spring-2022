@@ -11,8 +11,7 @@ public class LiturgicalFunction {
     private String name;
     private String description;
 
-    public LiturgicalFunction(long id, String name, String description) {
-        this.id = id;
+    public LiturgicalFunction(String name, String description) {
         this.name = name;
         this.description = description;
     }

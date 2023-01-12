@@ -49,8 +49,18 @@ public class LiturgicalVestmentService  {
             toEdit.get().setLiningMaterial(vestment.getLiningMaterial());
             toEdit.get().setCutType(vestment.getCutType());
             toEdit.get().setSize(vestment.getSize());
-            toEdit.get().setDescription(vestment.getDescription());
-            liturgicalVestmentRepository.save(toEdit.get());
+//            toEdit.get().setDescription(vestment.getDescription());
+            if(vestment.getDescription() != null) {
+                if(toEdit.get().getDescription() == null) {
+                    toEdit.get().setDescription(vestment.getDescription());
+                } else {
+                    toEdit.get().getDescription().setAdditionalInformation(vestment.getDescription().getAdditionalInformation());
+                    toEdit.get().getDescription().setDamages(vestment.getDescription().getDamages());
+                }
+            }
+            toEdit.get().setUsers(vestment.getUsers());
+
+            //liturgicalVestmentRepository.save(toEdit.get());
             return toEdit.get();
         }
         return null;
@@ -90,5 +100,9 @@ public class LiturgicalVestmentService  {
 
 
         System.out.println(liturgicalVestmentRepository.findById(x.getId()));
+
+        System.out.println(liturgicalVestmentRepository.getByMaterialHavingLessThicknessThan(11));
+
+        System.out.println(liturgicalVestmentRepository.getBySize("M"));
     }
 }

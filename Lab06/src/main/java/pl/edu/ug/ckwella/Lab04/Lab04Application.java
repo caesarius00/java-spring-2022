@@ -24,6 +24,7 @@ public class Lab04Application {
 		return (args -> {
 
 			service.learning();
+			service.lab10();
 
 		});
 

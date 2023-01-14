@@ -98,7 +98,7 @@ public class LiturgicalVestment {
         return size;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public Description getDescription() {
         return description;
     }

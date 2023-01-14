@@ -82,7 +82,7 @@ public class Material {
 
     @Override
     public String toString() {
-        return "Material{" + "name=" + name + ", density=" + density + ", thickness=" + thickness + "liturgicalVestments=" + liturgicalVestmentsWhereMaterial + '}';
-        //return "Material{" + "name=" + name + ", density=" + density + ", thickness=" + thickness + '}';
+        //return "Material{" + "name=" + name + ", density=" + density + ", thickness=" + thickness + "liturgicalVestments=" + liturgicalVestmentsWhereMaterial + '}';
+        return "Material{" + "name=" + name + ", density=" + density + ", thickness=" + thickness + '}';
     }
 }

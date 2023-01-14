@@ -104,5 +104,47 @@ public class LiturgicalVestmentService  {
         System.out.println(liturgicalVestmentRepository.getByMaterialHavingLessThicknessThan(11));
 
         System.out.println(liturgicalVestmentRepository.getBySize("M"));
+
+
+        LiturgicalVestment v1 = new LiturgicalVestment("kapa", "czarny", "złoty", "gotycki", "M");
+        LiturgicalVestment v2 = new LiturgicalVestment("kapa", "czarny", "srebrny", "gotycki", "M");
+        Description d1 = new Description("Duża dziura na rękawie","");
+        Description d2 = new Description("Brak uszkodzeń","Dzieło sztuki");
+        v1.setDescription(d1);
+        v2.setDescription(d2);
+
+        liturgicalVestmentRepository.save(v1);
+        liturgicalVestmentRepository.save(v2);
+    }
+
+    public void lab10(){
+        /////////Lab 10
+        System.out.println("///////////////////////////DOMYŚLNE////////////////////////////////");
+        for(LiturgicalVestment v: liturgicalVestmentRepository.findAll()){
+            System.out.println(v.getDescription());
+        }
+
+        System.out.println("///////////////////////////JOIN FETCH////////////////////////////////");
+        for(LiturgicalVestment v: liturgicalVestmentRepository.findAllUsingJoinFetch()){
+            System.out.println(v.getDescription());
+        }
+
+        System.out.println("///////////////////////////OPTIONAL////////////////////////////////");
+        Optional<LiturgicalVestment> v1 = liturgicalVestmentRepository.findById(157L);
+        //v1.ifPresent(System.out::println);
+        v1.ifPresentOrElse(System.out::println, () -> System.out.println("Nie ma rekordu z id=157"));
+
+        Optional<LiturgicalVestment> v2 = liturgicalVestmentRepository.findById(1L);
+        v2.filter(v -> v.getPrimaryColor().equals("czarny")).ifPresent(System.out::println);
+
+        Optional<LiturgicalVestment> v3 = liturgicalVestmentRepository.findById(3L);
+        String color = v3.map(LiturgicalVestment::getPrimaryColor).orElse(null);
+        if (v3.isPresent()){
+            v3.get().getDescription().setAdditionalInformation("KOLOR: " + color);
+        }
+
+        Optional<LiturgicalVestment> v4 = liturgicalVestmentRepository.findById(7L);
+        LiturgicalVestment vestment = v4.orElse(new LiturgicalVestment("kapa", "czarny", "złoty", "gotycki", "M"));
+        //LiturgicalVestment vestment = v4.orElseThrow(() -> new RuntimeException("Nie ma rekordu z id=7"));
     }
 }

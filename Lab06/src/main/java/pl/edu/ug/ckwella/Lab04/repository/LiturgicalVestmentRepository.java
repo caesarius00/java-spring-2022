@@ -28,4 +28,10 @@ public interface LiturgicalVestmentRepository extends CrudRepository<LiturgicalV
     @Query(nativeQuery = true, value = "SELECT * FROM Liturgical_Vestment WHERE SIZE=?")
     List<LiturgicalVestment> getBySize(String size);
 
+    @Query(nativeQuery = true, value = "SELECT * FROM Liturgical_Vestment")
+    List<LiturgicalVestment> findAllVestments();
+
+    @Query("SELECT l FROM LiturgicalVestment l join fetch l.description")
+    List<LiturgicalVestment> findAllUsingJoinFetch();
+
 }

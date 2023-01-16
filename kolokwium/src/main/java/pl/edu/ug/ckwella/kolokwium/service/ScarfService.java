@@ -57,6 +57,11 @@ public class ScarfService {
 
         Material cotton = new Material("Cotton", 15, 30);
 
+        scarf.setMaterial(cotton);
+
         addScarf(scarf);
+        //DZIAŁA
+
+
     }
 }

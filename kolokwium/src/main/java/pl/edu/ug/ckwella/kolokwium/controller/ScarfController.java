@@ -12,29 +12,29 @@ public class ScarfController {
         this.service = service;
     }
 
-//    @GetMapping("/api/liturgicalVestments")
-//    Iterable<Scarf> getAllVestments(){
-//        return service.getAllScarfs();
-//    }
-
-    @PostMapping("/api/liturgicalVestments")
-    LiturgicalVestment addVestment(@RequestBody LiturgicalVestment vestment){
-        return service.addVestment(vestment);
+    @GetMapping("/api/scarfs")
+    Iterable<Scarf> getAllVestments(){
+        return service.getAllScarfs();
     }
 
-    @PutMapping("/api/liturgicalVestments/{id}")
-    LiturgicalVestment updateVestment(@RequestBody LiturgicalVestment vestment, @PathVariable("id") Long id){
-        return service.editVestment(vestment, id);
+    @PostMapping("/api/scarfs")
+    Scarf addScarf(@RequestBody Scarf scarf){
+        return service.addScarf(scarf);
     }
 
-    @DeleteMapping("/api/liturgicalVestments/{id}")
-    boolean deleteVestment(@PathVariable("id") Long id){
-        return service.deleteVestment(id);
+    @PutMapping("/api/scarfs/{id}")
+    Scarf updateVestment(@RequestBody Scarf scarf, @PathVariable("id") Long id){
+        return service.editScarf(scarf, id);
+    }
+
+    @DeleteMapping("/api/scarfs/{id}")
+    boolean deleteScarf(@PathVariable("id") Long id){
+        return service.deleteScarf(id);
     }
 
     @GetMapping("/api/liturgicalVestments/{id}")
-    LiturgicalVestment getVestment(@PathVariable("id") Long id){
-        return service.getVestment(id);
+    Scarf getScarf(@PathVariable("id") Long id){
+        return service.getScarf(id);
     }
 
 

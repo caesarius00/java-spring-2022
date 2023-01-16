@@ -9,19 +9,20 @@ public class Scarf {
     private long id;
     private String name;
     private String color;
-    private String material;
+    private Material material;
     private String size;
 
-    public Scarf(String name, String color, String material, String size) {
+    public Scarf(String name, String color, String size) {
         this.name = name;
         this.color = color;
-        this.material = material;
         this.size = size;
     }
 
     public Scarf() {
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id;
     }
@@ -34,7 +35,8 @@ public class Scarf {
         return color;
     }
 
-    public String getMaterial() {
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    public Material getMaterial() {
         return material;
     }
 
@@ -54,7 +56,7 @@ public class Scarf {
         this.color = color;
     }
 
-    public void setMaterial(String material) {
+    public void setMaterial(Material material) {
         this.material = material;
     }
 

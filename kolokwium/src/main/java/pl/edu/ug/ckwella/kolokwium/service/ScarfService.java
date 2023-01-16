@@ -1,6 +1,7 @@
 package pl.edu.ug.ckwella.kolokwium.service;
 
 import org.springframework.stereotype.Service;
+import pl.edu.ug.ckwella.kolokwium.domain.Material;
 import pl.edu.ug.ckwella.kolokwium.domain.Scarf;
 import pl.edu.ug.ckwella.kolokwium.repository.ScarfRepository;
 
@@ -49,6 +50,13 @@ public class ScarfService {
 
 
     public void learning() {
-        System.out.println("WORKING");
+        Scarf scarf = new Scarf();
+        scarf.setName("Scarf");
+        scarf.setColor("Red");
+        scarf.setSize("L");
+
+        Material cotton = new Material("Cotton", 15, 30);
+
+        addScarf(scarf);
     }
 }

@@ -8,16 +8,16 @@ import java.util.List;
 @JsonIgnoreProperties("scarfs")
 @Entity
 public class Material {
-
+    @Id
     private long id;
     private String name;
-    private double density; // g/cm^3
-    private double thickness; //1 = 0.01 mm
+    private int density; // g/cm^3
+    private int thickness; //1 = 0.01 mm
 
     private List<Scarf> scarfs;
 
 
-    public Material(String name, double density, double thickness) {
+    public Material(String name, int density, int thickness) {
         this.name = name;
         this.density = density;
         this.thickness = thickness;
@@ -58,21 +58,21 @@ public class Material {
         this.name = name;
     }
 
-    public void setDensity(double density) {
+    public void setDensity(int density) {
         this.density = density;
     }
 
-    public void setThickness(double thickness) {
+    public void setThickness(int thickness) {
         this.thickness = thickness;
     }
 
-    public void setMaterial(List<Scarf> material) {
-        this.scarfs = material;
+    public void setScarfs(List<Scarf> scarfs) {
+        this.scarfs = scarfs;
     }
 
     @Override
     public String toString() {
-        //return "Material{" + "name=" + name + ", density=" + density + ", thickness=" + thickness + "liturgicalVestments=" + liturgicalVestmentsWhereMaterial + '}';
+        //return "Material{" + "name=" + name + ", density=" + density + ", thickness=" + thickness + "scarfs=" + scarfs + '}';
         return "Material{" + "name=" + name + ", density=" + density + ", thickness=" + thickness + '}';
     }
 }

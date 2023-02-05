@@ -25,6 +25,7 @@ public class Lab04Application {
 
 			service.learning();
 			service.lab10();
+			service.vestmentStream();
 
 		});
 

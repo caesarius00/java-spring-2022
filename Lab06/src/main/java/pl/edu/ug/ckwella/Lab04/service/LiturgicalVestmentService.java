@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -115,6 +116,9 @@ public class LiturgicalVestmentService  {
 
         liturgicalVestmentRepository.save(v1);
         liturgicalVestmentRepository.save(v2);
+
+
+
     }
 
     public void lab10(){
@@ -146,5 +150,40 @@ public class LiturgicalVestmentService  {
         Optional<LiturgicalVestment> v4 = liturgicalVestmentRepository.findById(7L);
         LiturgicalVestment vestment = v4.orElse(new LiturgicalVestment("kapa", "czarny", "złoty", "gotycki", "M"));
         //LiturgicalVestment vestment = v4.orElseThrow(() -> new RuntimeException("Nie ma rekordu z id=7"));
+    }
+
+    public void vestmentStream(){
+
+        System.out.println("///////////////////////////STREAM////////////////////////////////");
+
+        //simple stream
+        List<LiturgicalVestment> vestments = liturgicalVestmentRepository.findAllVestments();
+        vestments.stream().forEach(System.out::println);
+
+        //stream with filter
+        List<LiturgicalVestment> filteredVestments = liturgicalVestmentRepository.findAllVestments();
+        filteredVestments.stream().filter(v -> v.getPrimaryColor().equals("czarny")).forEach(System.out::println);
+
+        //stream with filter and map
+        List<LiturgicalVestment> filteredAndMappedVestments = liturgicalVestmentRepository.findAllVestments();
+        filteredAndMappedVestments.stream()
+                .filter(v -> v.getPrimaryColor().equals("czarny"))
+                .map(LiturgicalVestment::getPrimaryColor).forEach(System.out::println);
+
+        //stream with filter, map and collect
+        List<LiturgicalVestment> filteredAndMappedAndCollectedVestments = liturgicalVestmentRepository.findAllVestments();
+        List<String> colors = filteredAndMappedAndCollectedVestments.stream()
+                .filter(v -> v.getPrimaryColor().equals("czarny"))
+                .map(LiturgicalVestment::getPrimaryColor)
+                .collect(Collectors.toList());
+        System.out.println(colors);
+
+        //stream with findFirst
+        List<LiturgicalVestment> vests = liturgicalVestmentRepository.findAllVestments();
+        Optional<LiturgicalVestment> firstVest = vests.stream().findFirst();
+        firstVest.ifPresent(System.out::println);
+
+
+
     }
 }
